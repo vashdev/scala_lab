@@ -1,0 +1,4 @@
+//compile & run commands
+ex:
+scalac -classpath . CoinFlipGame.scala
+scala -classpath . CoinFlipGame.scala T
