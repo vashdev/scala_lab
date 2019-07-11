@@ -31,12 +31,12 @@ object AlexAlvinRef {
 
       println("Define Function that takes a string and returns another string")
 
-      def appendHashString(s: String) = s + " UID HashString "
+      def appendHashString(s: String) = s + " UID HashStringValueX "
 
       println("Define a fucntion thats capable of taking a fucntion like 'appendHashString' and  returns some computed Value ")
 
       def gethashLen(callbackf: (String) => String): Int = {
-        callbackf("Mona").length
+        callbackf("AppendString Step X").length
       }
       println("Usage : Now you cna use getLen by passing appendHashString...")
       println("Hash Len of UID="+gethashLen(appendHashString))
@@ -45,7 +45,7 @@ object AlexAlvinRef {
       println("SSH2 Len of uid="+gethashLen(appendSSHString))
      println(" One more example of Func Input Parameters")
 
-    def fIPExample(f1:(Int,Int)=>Int , f2:(Int,Int)=>Int, a:Int,b:Int):Tuple2[Int,Int]={
+    def fIPExample( f1:(Int,Int)=>Int , f2:(Int,Int)=>Int, a:Int,b:Int):Tuple2[Int,Int]={
       var v1=f1(a,b)
       var v2=f2(a,b)
       (v1,v2)
@@ -55,7 +55,9 @@ object AlexAlvinRef {
     var t=fIPExample(sumf,multi,10,20)
     println(" FIP resulting Tuple =" +t)
     println(" Writing your own map function Example , i.e apply a fucntion() to all elements of List and return List with all its elements")
+
     def myMap[A](fe:(Int)=>A,l:List[Int]  ) : List[A] = for(x <- l) yield fe(x)
+
     println(myMap(tripDef, List.range(0,10)))
    println(" Its correct- But to be precise since MAP Always maps from Any typeA to Any type B")
 
@@ -87,12 +89,13 @@ object AlexAlvinRef {
     val someVal=true
     printIntiftrue(10)
     */
-println("Partially applied fucntions ....")
+println("Partially applied fucntions ...")
     def plus(a:Int)(b:Int)=a+b
-    println(plus(2)(2))
+    println( " simpel addition ..")
+    println(plus(2)(7))
     println("Create New Function by seedinng more generic fucntion ")
-    def partialAppliedplus=plus(2) _
-    println(partialAppliedplus(2))
+    def partialAppliedplus=plus(5) _
+    println(partialAppliedplus(3))
     println(" Currying ...A funtion that takes multiple args is converted to seriels of Partially aplied Function")
     def add(a:Int,b:Int)=a+b
     val addfunction = add _
@@ -128,9 +131,9 @@ println("Recurssion Classic Example ")
     println("Equality of case class")
 
     println("Object Instance compare  Compare reference v eq eq z -two different object" +(v==z).toString)
-    println( " v and z .equals  " + v.equals(z))
+    println( " v and z .equals ? " + v.equals(z))
     println("Object Instance compare v eq eq v1 two obj vars pointing to same object " +(v==v1).toString)
-    println( "v and v1 .equals " + v.equals(v1))
+    println( "v and v1 .equals ?" + v.equals(v1))
     println("Update As you copy -gives new object")
     val v3=v1.copy("a1","a2")
     println(v3.name )
